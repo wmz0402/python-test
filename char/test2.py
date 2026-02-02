@@ -58,7 +58,47 @@ print("上海" in z)
 #所有非零整数的布尔值都是True
 #所有非空字符串的布尔值都是True
 
+#eval函数的使用  就是去掉左右两边的引号
+a = "3.14+3"
+print(a,type(a))
+b = eval(a)
+print(b,type(b))
 
+#eval通常和input连用，来获取用户输入的数值
+age = eval(input("请输入你的年龄："))
+print(age,type(age))
+
+hello = "北京欢迎你！"
+print(hello)
+print(eval("hello"))   #去掉引号之后是一个变量hello输出这个变量的值
+
+
+#python支持链式赋值
+d=f=g=100
+print(d,f,g)
+
+#pyhton支持解包赋值
+d,f=1,2
+print(d,f)
+
+
+print("------------------如何交换两个变量的值？（利用系列解包赋值）--------------------------")
+d,f = f,d
+print(d,f)
+
+print("---------------输出一个四位数各个位置上的数------------------")
+n_um=eval(input("请输入一个四位数："))
+print("个位数是：",n_um%10)
+print("十位数是：",n_um//10%10)
+print("百位数是：",n_um//100%10)
+print("千位数是：",n_um//1000)
+print("-"*20)
+
+n_um1=input("请输入一个四位数")
+print("个位数是：",n_um1[3])
+print("十位数是：",n_um1[2])
+print("百位数是：",n_um1[1])
+print("千位数是：",n_um1[0])
 
 
 
