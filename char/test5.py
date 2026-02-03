@@ -84,6 +84,29 @@ print(asc_lst)
 desc_lst=sorted(lst3,reverse=True)
 print(desc_lst)
 
+print("========================================")
+#列表生成式
+import random
+lst4=[item for item in range(1,11)]
+print(lst4)
+lst4=[item*item for item in range(1,11)]
+print(lst4)
+lst4=[random.randint(1,100) for _ in range(10)]
+print(lst4)
+#在列表中选择符合条件的数组成列表
+lst4=[item for item in range(10) if item%2==0]
+print(lst4)
+
+print("===========================================")
+#二维列表的创建和便利
+lst=[
+    ["城市","环比","同比"],
+    ["北京",102,103],
+    ["上海",104,504],
+    ["深圳",100,39]
+]
+print(lst)
+#遍历二维列表通常使用双层for循环
 
 
 
