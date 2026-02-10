@@ -1,4 +1,6 @@
 #序列的切片操作
+from sys import flags
+
 s="HelloWorld"
 s1=s[0:5:2] #索引从零开始到五结束（不包含五）步长为2
 print(s1)
@@ -330,16 +332,16 @@ s={i for i in range(1,10) if i%2==0}
 print(s)
 
 #结构的数据匹配
-date=eval(input("请输入要匹配的数据："))
-match date:
-    case {"name":"ysj","age":20}:
-        print("字典")
-    case [10,20,30]:
-        print("列表")
-    case (10,20,40):
-        print("元组")
-    case _:
-        print("相当于else")
+# date=eval(input("请输入要匹配的数据："))
+# match date:
+#     case {"name":"ysj","age":20}:
+#         print("字典")
+#     case [10,20,30]:
+#         print("列表")
+#     case (10,20,40):
+#         print("元组")
+#     case _:
+#         print("相当于else")
 
 #合并字典的操作
 d1={"a":10,"b":20}
@@ -361,17 +363,97 @@ for f,c in zip(fruits,counts):
         case "mango",5:
             print("mango")
 
+#千年虫
+lst=[88,89,90,98,00,99]  #表示员工整数出生年份
+print(lst)
+#遍历列表
+# for index in range(len(lst)):
+#     if str(lst[index])=="0":
+#         lst[index]="200"+str(lst[index])
+#     else:
+#         lst[index]="19"+str(lst[index])
+#
+# print(lst)
+
+#使用enumerate()函数
+for index,value in enumerate(lst):
+    if str(value)=="0":
+        lst[index]="200"+str(value)
+    else:
+        lst[index]="19"+str(value)
+print(lst)
+
+#模拟京东购物流程
+# #创建一个空列表，用于储存入库的商品信息
+# lst=[]
+# for i in range(5):
+#     goods=input("请输入商品编号和商品的名称进行商品入库，每次只能输入一件商品：")
+#     lst.append(goods)
+# #输出所有的商品信息
+# for item in lst:
+#     print(item)
+
+#创建一个空列表，用于储存购物车中的商品
+# cart=[]
+# while True:
+#     flag=False #代表没有商品的情况
+#     num=input("请输入要购买的导航品编号：")
+#     #遍历商品列表查询要购买的商品是否存在
+#     for item in lst:
+#         if num==item[0:4]:# 切片操作从商品中切出编号
+#             flag=True
+#             cart.append(item)
+#             print("商品已成功添加到购物车！")
+#             break
+#     if not flag and num!="q":
+#         print("商品不存在")
+#
+#     if num=="q":
+#         break
+# print("-"*50)
+# print("您购物车已选的商品为：")
+# cart.reverse()
+# for item in cart:
+#     print(item)
+
+# #模拟12306火车订票流程
+# #创建字典用于储存车票信息，使用车次做key，其他信息作为value
+# dict_ticket={
+#     'G1569':['北京南-天津南','18:06','18:39','00:33'],
+#     'G1567':['北京南-天津南','18:15','18:49','00:34'],
+#     'G8917':['北京南-天津西','18:20','18:19','00:59'],
+#     'G203':["北京南-天津南",'18:35','19:09','00:34']
+# }
+# print('车次    出发站-到达站     出发时间     到达时间     历时时长')
+# #遍历字典元素
+# for key in dict_ticket:
+#     print(key,end='\t')
+#     for item in dict_ticket[key]:
+#         print(item,end='\t\t')
+#     print()
+# #输入用户的购买车次
+# train_no=input("请输入要购买的车次：")
+# #根据key获取值
+# info=dict_ticket.get(train_no,"车次不存在") #info是一个列表类型
+# #判断车次是否不存在
+# if info != "车次不存在":
+#     person=input("请输入乘车人，如果是多位乘车人请使用逗号分割：")
+#     #获取车次的出发站-到达站，还有出发时间
+#     s=info[0]+' '+info[1]+'开'
+#     print("您购买了"+train_no+' '+s+"请"+person+"尽快换取纸质车票。【铁路客服】")
+# else:
+#     print("对不起选择的车次可能不存在")
 
 
-
-
-
-
-
-
-
-
-
+#模拟通讯录
+#创建一个空集合
+s=set()
+for i in range(1,6):
+    info=input(f'请输入第{i}位好友的姓名和手机号：')
+    s.add(info)
+#遍历集合
+for item in s:
+    print(item)
 
 
 
