@@ -118,11 +118,87 @@ lst.sort(key=s.index)
 print("",join(lst))
 
 
+#re模块 实现正则表达式
+#match函数的使用
+# import re #导入re模块
+# pattern = '\d\.\d+' #+限定符，\d0-9数字出现1次或多次
+# s = "I study Python 3.11 every day" #待匹配字符串
+# #  match=re.match(pattern,s,re.I)  #从头开始查找 s开头不是数字所以查找失败
+# # print(match)
+# s2="3.11 Python I study every day"
+# match2=re.match(pattern,s2)
+# print(match2)
+# #匹配值的起始位置
+# print(match2.start())
+# #匹配值的结束位置
+# print(match2.end())
+# #匹配区间的位置元素
+# print(match2.span())
+# #待匹配字符串
+# print(match2.string)
+# #匹配数据
+# print(match2.group())
+#
+# #search是从整个字符串中进行查找 不出现在开头也能查找 有多个符合条件的值的时候只取第一个值
+# s="I study Python 3.11 every day Python 2.7 I love you"
+# match=re.search(pattern,s)
+# print(match)
+# print(match.group()) #输出查找到的数据时用这个
+#
+# #findall函数的使用 查找所有
+# s="I study Python 3.11 every day Python 2.7 I love you"
+# s2="4.10 Python I study every day"
+# s3="I study Python every day"
+# lst=re.findall(pattern,s)   #最后的返回值是列表类型
+# lst2=re.findall(pattern,s2)
+# lst3=re.findall(pattern,s3)
+# print(lst)
+# print(lst2)
+# print(lst3)
+#
+# #sub函数 对字符串中的元素进行替换
+# pattern="黑客|破解|反爬"
+# s="我想学习Python，想破解一些VIP视频，Python可以实现无底线反爬吗？"
+# new_s=re.sub(pattern,"XXX",s)
+# print(new_s)
+# #split 拆分
+# s2="https://www.baidu.com/s?wd=ysj&rsv_spt=1"
+# pattern2="[?|&]"
+# lst=re.split(pattern2,s2)
+# print(lst)
+#
+# #实战一 车牌归属地
+# lst=["京A8888","津B6666","吉A77766"]
+# for item in lst:(
+#     area=item[0:1]
+#     print(item,"您的归属地为：",area)
+# #
+# #统计字符串中指定字符出现的次数
+# s="HelloPython,HelloJava,Hellohp"
+# word=input("请输入要统计的字符：")
+# print(s.upper().count(word))
 
-
-
-
-
+#格式化输出商品的名称和单价
+lst=[
+    ["01","电风扇","美的",500],
+    ["02","洗衣机","TCL",1000],
+    ["03","微波炉","老板",400],
+]
+print("编号\t\t名称\t\t\t品牌\t\t单价")
+for item in lst:
+    for i in item:
+        print(i,end="\t\t")
+    print()
+#格式化
+for item in lst:
+    item[0]="0000"+item[0]
+    item[3]="￥{0:.2f}".format(item[3])
+print("编号\t\t\t名称\t\t\t品牌\t\t单价")
+for item in lst:
+    for i in item:
+        print(i,end="\t\t")
+    print()
+#提取文本当中所有图片的链接地址
 
 
 
