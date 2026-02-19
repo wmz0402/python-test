@@ -155,14 +155,51 @@ max=get_max2(lst)
 print(max)
 print("-"*30)
 
-def getu
 
+# #查找字符串中的数字并求和
+# def get_digit(x):
+#     s=0
+#     lst=[]
+#     for item in x:
+#         if item.isdigit():
+#             lst.append(int(item))
+#     s=sum(lst)
+#     return lst,s
+# #调用
+# s=input("请输入一个字符串：")
+# #调用
+# lst,x=get_digit(s)
+# print("提取的数字列表为：",lst)
+# print("累加和为：",x)
+# print("-"*30)
 
+# #编写一个函数将字符串的大小写进行转换
+# def lower_upper(x):
+#     lst=[]
+#     for item in x:
+#         if "A" <= item <= "Z":
+#             lst.append(chr(ord(item)+32)) #ord()将字母转化成Unicode码整数，加上32，chr（）整数码换成字符
+#         elif "a" <= item <= "z":
+#             lst.append(item.upper())
+#         else:
+#             lst.append(item)
+#     return ''.join(lst)  #对元素进行拼接
+# #准备调用
+# s=input("请输入一个字符串：")
+# new_s=lower_upper(s)
+# print(new_s)
 
-
-
-
-
+#编写函数实现操作符in功能
+def get_find(s,lst):
+    for item in lst:
+        if s == item:
+            return True
+    return False
+lst=["hello","world","python"]
+s=input("请输入你要判断的字符串：")
+result=get_find(s,lst)
+print("存在" if result else "不存在")
+print("-"*30)
 
 
 
