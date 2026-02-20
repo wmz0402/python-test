@@ -142,11 +142,21 @@ class Student(Person):
         super().__init__(name,age) #调用父类的初始化方法
         self.stuno = stuno
 
+    #重写
+    def show(self):
+        super().show()    #调用父类的方法
+        print(f"我来自XXX大学，我的学号是：{self.stuno}")
+
 #doctor继承Person
 class Doctor(Person):
     def __init__(self, name, age,department):
         super().__init__(name,age)
         self.department = department
+
+#重写
+    def show(self):
+        # super().show()  也可以不进行调用
+        print(f"我来自XXX医院，我的部门是{self.department}")
 
 #创建第一个子类对象
 stu=Student("陈美美",20,1001)
