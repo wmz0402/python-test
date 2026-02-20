@@ -127,70 +127,90 @@
 # print(stu.name,"性别是：",stu.gender)
 #
 
-#继承====================================================================
-class Person: #默认继承了object
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-    def show(self):
-        print(f"大家好，我叫：{self.name}，今年{self.age}岁了")
+# #继承====================================================================
+# class Person: #默认继承了object
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+#     def show(self):
+#         print(f"大家好，我叫：{self.name}，今年{self.age}岁了")
+#
+# #Student继承Person类·
+# class Student(Person):
+#     #编写初始化的方法
+#     def __init__(self, name, age,stuno):
+#         super().__init__(name,age) #调用父类的初始化方法
+#         self.stuno = stuno
+#
+#     #重写
+#     def show(self):
+#         super().show()    #调用父类的方法
+#         print(f"我来自XXX大学，我的学号是：{self.stuno}")
+#
+# #doctor继承Person
+# class Doctor(Person):
+#     def __init__(self, name, age,department):
+#         super().__init__(name,age)
+#         self.department = department
+#
+# #重写
+#     def show(self):
+#         # super().show()  也可以不进行调用
+#         print(f"我来自XXX医院，我的部门是{self.department}")
+#
+# #创建第一个子类对象
+# stu=Student("陈美美",20,1001)
+# stu.show()
+# doctor=Doctor("张一一",45,"临床")
+# doctor.show()
+#
+# class FatherA():
+#     def __init__(self,name):
+#         self.name = name
+#
+#     def showA(self):
+#         print("父类A中的方法")
+# class FatherB():
+#     def __init__(self,age):
+#         self.age = age
+#     def showB(self):
+#         print("父类B中的方法")
+#
+# #多继承 继承了多个父类
+# class Son(FatherA,FatherB):
+#     def __init__(self,name,age,gender):
+#         #需要调用两个父类的初始化方法
+#         FatherA.__init__(self,name)
+#         FatherB.__init__(self,age)
+#         self.gender = gender
+#
+# son=Son("陈美美",20,"女")
+# son.showA()
+# son.showB()
+#
+#多态=====================================================================
+class Person():
+    def eat(self):
+        print("人吃五谷杂粮")
 
-#Student继承Person类·
-class Student(Person):
-    #编写初始化的方法
-    def __init__(self, name, age,stuno):
-        super().__init__(name,age) #调用父类的初始化方法
-        self.stuno = stuno
-
-    #重写
-    def show(self):
-        super().show()    #调用父类的方法
-        print(f"我来自XXX大学，我的学号是：{self.stuno}")
-
-#doctor继承Person
-class Doctor(Person):
-    def __init__(self, name, age,department):
-        super().__init__(name,age)
-        self.department = department
-
-#重写
-    def show(self):
-        # super().show()  也可以不进行调用
-        print(f"我来自XXX医院，我的部门是{self.department}")
-
-#创建第一个子类对象
-stu=Student("陈美美",20,1001)
-stu.show()
-doctor=Doctor("张一一",45,"临床")
-doctor.show()
-
-class FatherA():
-    def __init__(self,name):
-        self.name = name
-
-    def showA(self):
-        print("父类A中的方法")
-class FatherB():
-    def __init__(self,age):
-        self.age = age
-    def showB(self):
-        print("父类B中的方法")
-
-#多继承 继承了多个父类
-class Son(FatherA,FatherB):
-    def __init__(self,name,age,gender):
-        #需要调用两个父类的初始化方法
-        FatherA.__init__(self,name)
-        FatherB.__init__(self,age)
-        self.gender = gender
-
-son=Son("陈美美",20,"女")
-son.showA()
-son.showB()
-
-
-
-
+class Cat():
+    def eat(self):
+        print("猫喜欢吃鱼")
+class Dog():
+    def eat(self):
+        print("狗喜欢吃骨头")
+#这三个类中都有一个同名的方法，eat
+#编写函数
+def fun(obj): #obj是函数的形式参数，在定义处不知道数据类型
+    obj.eat()
+#创建三个类对象
+per=Person()
+cat=Cat()
+dog=Dog()
+#调用fun函数
+fun(per)
+fun(cat)
+fun(dog)
 
 
 
