@@ -101,30 +101,90 @@
 # print(stu._Student__age)
 # stu._Student__fun2()
 
-#属性的设置
-class Student:
-    def __init__(self,name,gender):
+# #属性的设置
+# class Student:
+#     def __init__(self,name,gender):
+#         self.name = name
+#         self.__gender = gender
+#
+#     #使用@property修改方法，将方法转成属性使用
+#     @property
+#     def gender(self):
+#         return self.__gender
+#
+# #将我们的gender这个属性设置为可写属性
+#     @gender.setter
+#     def gender(self,value):
+#         if value!="男"and value!="女":
+#             print("性别有误，已将性别默认设置为男")
+#             self.__gender="男"
+#         else:
+#             self.__gender=value
+#
+# stu=Student("陈美美","女")
+# print(stu.name,"的性别是：",stu.gender) #stu.gender就是会执行stu.gender()
+# stu.gender="其他"
+# print(stu.name,"性别是：",stu.gender)
+#
+
+#继承====================================================================
+class Person: #默认继承了object
+    def __init__(self, name, age):
         self.name = name
-        self.__gender = gender
+        self.age = age
+    def show(self):
+        print(f"大家好，我叫：{self.name}，今年{self.age}岁了")
 
-    #使用@property修改方法，将方法转成属性使用
-    @property
-    def gender(self):
-        return self.__gender
+#Student继承Person类·
+class Student(Person):
+    #编写初始化的方法
+    def __init__(self, name, age,stuno):
+        super().__init__(name,age) #调用父类的初始化方法
+        self.stuno = stuno
 
-#将我们的gender这个属性设置为可写属性
-    @gender.setter
-    def gender(self,value):
-        if value!="男"and value!="女":
-            print("性别有误，已将性别默认设置为男")
-            self.__gender="男"
-        else:
-            self.__gender=value
+#doctor继承Person
+class Doctor(Person):
+    def __init__(self, name, age,department):
+        super().__init__(name,age)
+        self.department = department
 
-stu=Student("陈美美","女")
-print(stu.name,"的性别是：",stu.gender) #stu.gender就是会执行stu.gender()
-stu.gender="其他"
-print(stu.name,"性别是：",stu.gender)
+#创建第一个子类对象
+stu=Student("陈美美",20,1001)
+stu.show()
+doctor=Doctor("张一一",45,"临床")
+doctor.show()
+
+class FatherA():
+    def __init__(self,name):
+        self.name = name
+
+    def showA(self):
+        print("父类A中的方法")
+class FatherB():
+    def __init__(self,age):
+        self.age = age
+    def showB(self):
+        print("父类B中的方法")
+
+#多继承 继承了多个父类
+class Son(FatherA,FatherB):
+    def __init__(self,name,age,gender):
+        #需要调用两个父类的初始化方法
+        FatherA.__init__(self,name)
+        FatherB.__init__(self,age)
+        self.gender = gender
+
+son=Son("陈美美",20,"女")
+son.showA()
+son.showB()
+
+
+
+
+
+
+
+
 
 
 
