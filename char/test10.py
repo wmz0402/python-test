@@ -106,8 +106,44 @@
 # print("hello world")
 
 #datetime模块的使用
+#datetime类的使用
+from datetime import datetime  #从datetime模块中导入datetime类
+dt = datetime.now()
+print(dt)
+
+dt2=datetime(2028,8,8,20,8)
+print("dt2的数据类型",type(dt2),"dt2所表示的日期时间：",dt2)
+print("年：",dt2.year,"月：",dt2.day,"日：",dt2.day)
+print("时：",dt2.hour,"分：",dt2.minute,"秒：",dt2.second)
+#比较大小奥
+labor_day=datetime(2028,5,1,20,8)
+national_day=datetime(2028,10,1,20,8)
+print("2028年5.1比10.1要早吗",labor_day<national_day)
+
+#daterime类型与字符串进行转换
+nowdt=datetime.now()
+nowdt_str=nowdt.strftime("%Y/%m/%d %H:%M:%S")
+print("nowdt的数据类型：",type(nowdt),"数据是什么：",nowdt)
+print("nowdt_str:",type(nowdt_str),"nowdt_str:",nowdt_str)\
 
 
-
+#字符串雷星转成datetime类型
+str_datetime="2028年8月8日 20点8分"
+dt3=datetime.strptime(str_datetime,"%Y年%m月%d日 %H点%M分")
+print(type(str_datetime),str_datetime)
+print(type(dt3),dt3)
+print("-"*50)
+#timedelta类的使用
+from datetime import datetime
+from datetime import timedelta
+#创建两个daterime对象
+delta1=datetime(2028,10,1)-datetime(2028,5,1)
+print(type(delta1),delta1)
+print(datetime(2028,5,1)+delta1)
+#通过传入参数的方法创建一个timedelta对象
+td1=timedelta(10)
+print("创建一个10天的timedelta对象",td1)
+td2=timedelta(10,11)
+print("创建一个10天11秒的timedelta对象",td2)
 
 
