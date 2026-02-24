@@ -35,16 +35,38 @@
 #
 
 
-import  admin.my_admin as a   #包名.模块名 admin是包名，my_admin是模块名
-a.info()  #__init__.py自动执行
+# import  admin.my_admin as a   #包名.模块名 admin是包名，my_admin是模块名
+# a.info()  #__init__.py自动执行
+#
+# print("-"*40)
+# #__init__.py只执行一次
+# from admin import my_admin as b
+# b.info()
+# print("-"*40)
+# #导入具体函数
+# from admin.my_admin import info
+# info()
+# print("-"*40)
+#
 
-print("-"*40)
-#__init__.py只执行一次
-from admin import my_admin as b
-b.info()
-print("-"*40)
-#导入具体函数
-from admin.my_admin import info
-info()
-print("-"*40)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
