@@ -225,19 +225,121 @@
 # print(dir(per))
 
 
-#__str__方法的重写
-class Person(object):
-    def __init__(self, name, age):
+# #__str__方法的重写
+# class Person(object):
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+#
+#     #方法重写
+#     def __str__(self):
+#         return "这是个人类，具有name和age两个实例属性"  #返回值是一个字符串
+#
+# #创建类对象
+# per=Person("陈美美",20)
+# print(per.__str__())
+
+
+# # 示例一 计算圆的面积和周长
+# class Circle:
+#     def __init__(self,r):
+#         self.r = r
+#
+#     #计算面积
+#     def get_area(self):
+#         return 3.14*self.r*self.r
+#     #计算周长
+#     def get_perimeter(self):
+#         return 3.14*self.r*2
+#
+# r=eval(input("请输入圆的半径："))
+# c=Circle(r)
+# print("圆的面积是：",c.get_area())
+# print("圆的周长是：",c.get_perimeter())
+
+
+# #示例二
+# class Student:
+#     def __init__(self,name,age,gender,score):
+#         self.name=name
+#         self.age=age
+#         self.gender=gender
+#         self.score=score
+#     def info(self):
+#         print(self.name,self.age,self.gender,self.score)
+#
+# print("请输入五位学生信息录入：（姓名#年龄#性别#成绩）")
+# lst=[]
+# for i in range(1,6):
+#     s=input(f'请输入第{i}位学生信息及成绩')
+#     s_lst=s.split("#")
+#     stu=Student(s_lst[0],s_lst[1],s_lst[2],s_lst[3])
+#     lst.append(stu)
+#
+# for item in lst:
+#     item.info()
+
+# #示例三
+# class Instrument():
+#     def make_sound(self):
+#         pass
+#
+# class Erhu(Instrument):
+#     def make_sound(self):
+#         print("二胡在弹奏")
+#
+# class Pinao(Instrument):
+#     def make_sound(self):
+#         print("钢琴在弹奏")
+#
+# class Violin(Instrument):
+#     def make_sound(self):
+#         print("小提琴在弹奏")
+# def play(obj):
+#     obj.make_sound()
+# er=Erhu()
+# vi=Violin()
+# pin=Pinao()
+# play(er)
+# play(vi)
+# play(pin)
+#
+
+#实战四
+class Bike:
+    def __init__(self,model,brand):
+        self.model = model
+        self.brand = brand
+    def start(self):
+        print("启动了")
+    def stop(self):
+        print("停止了")
+
+class Taxi(Bike):
+    def __init__(self,model,brand,company):
+        super().__init__(model,brand)
+        self.company = company
+    def start(self):
+        print("乘客你好！")
+        print(f"我是{self.company}出租车公司的，我的车牌号是{self.brand}，你要去哪里？")
+    def stop(self):
+        print("目的地到了，请您扫码付款，欢迎下次乘坐！")
+class Car(Bike):
+    def __init__(self,model,brand,name):
+        super().__init__(model,brand)
         self.name = name
-        self.age = age
+    def start(self):
+        print(f"我是{self.name}，我的轿车我做主！")
+    def stop(self):
+        print("目的地到了，我们去玩吧！")
+#测试
+taxi=Taxi("广汽丰田","京A8888","长城")
+taxi.start()
+taxi.stop()
+car=Car("上海大众","京B6666","武大郎")
+car.start()
+car.stop()
 
-    #方法重写
-    def __str__(self):
-        return "这是个人类，具有name和age两个实例属性"  #返回值是一个字符串
-
-#创建类对象
-per=Person("陈美美",20)
-print(per.__str__())
 
 
 
