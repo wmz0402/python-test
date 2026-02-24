@@ -146,27 +146,47 @@
 # td2=timedelta(10,11)
 # print("创建一个10天11秒的timedelta对象",td2)
 
-#爬取景区天气预报
+# #爬取景区天气预报
+# import requests
+# import re
+# url="https://www.weather.com.cn/weather1d/101010200.shtml"#爬虫打开浏览器上的网页
+# resp=requests.get(url) #打开浏览器并打开网址
+# #设置编码格式
+# resp.encoding="utf-8"
+# print(resp.text) #resp响应对象，对象名.属性名
+#
+# city = re.findall('<span class="name">([\u4e00-\u9fa5]*)</span>', resp.text)
+# weather = re.findall('<span class="weather">([\u4e00-\u9fa5]*)</span>', resp.text)
+# wd = re.findall('<span class="wd">(.*)</span>', resp.text)
+# zs = re.findall('<span class="zs">([\u4e00-\u9fa5]*)</span>', resp.text)
+# # print(city)
+#
+# lst=[]
+# for a,b,c,d in zip(city,weather,wd, zs):
+#     lst.append([a,b,c,d])
+# print(lst)
+# for item in lst:
+#     print(item)
+
+#爬取百度logo
 import requests
-import re
-url="https://www.weather.com.cn/weather1d/101010200.shtml"#爬虫打开浏览器上的网页
-resp=requests.get(url) #打开浏览器并打开网址
-#设置编码格式
-resp.encoding="utf-8"
-print(resp.text) #resp响应对象，对象名.属性名
+url="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"
+resp=requests.get(url)
+#保存到本地
+with open("logo.png","wb")as file:
+    file.write(resp.content)
 
-city = re.findall('<span class="name">([\u4e00-\u9fa5]*)</span>', resp.text)
-weather = re.findall('<span class="weather">([\u4e00-\u9fa5]*)</span>', resp.text)
-wd = re.findall('<span class="wd">(.*)</span>', resp.text)
-zs = re.findall('<span class="zs">([\u4e00-\u9fa5]*)</span>', resp.text)
-# print(city)
 
-lst=[]
-for a,b,c,d in zip(city,weather,wd, zs):
-    lst.append([a,b,c,d])
-print(lst)
-for item in lst:
-    print(item)
+
+
+
+
+
+
+
+
+
+
 
 
 
