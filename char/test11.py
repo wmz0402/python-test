@@ -90,3 +90,43 @@
 
 
 
+# #with语句
+# def write_fun():
+#     with open("aa.txt","w",encoding="utf-8") as file:
+#         file.write("2022北京冬奥欢迎你")
+#
+# def read_fun():
+#     with open("aa.txt","r",encoding="utf-8") as file:
+#         print(file.read())
+# #第三个函数
+# def copy(src_file,target_file):
+#     with open(src_file,"r",encoding="utf-8") as file:
+#         with open(target_file,"w",encoding="utf-8") as file2:
+#             file2.write(file.read())
+#
+# if __name__ == '__main__':
+#     write_fun()
+#     read_fun()
+# #     文件复制
+#     copy("aa.txt","dd.txt")
+#
+
+
+#一维数据 二维数据储存
+def my_write():
+    # 一维数据可以使用列表，元组，集合
+    lst=["张三","李四","王五","赵六","麻七"]
+    with open("student.csv","w",encoding="utf-8") as file:
+        file.write(",".join(lst)) #将列表转换成字符串
+
+def my_read():
+    with open("student.csv","r",encoding="utf-8") as file:
+        s=file.read()
+        lst=s.split(",")
+        print(lst)
+
+
+
+if __name__ == '__main__':
+    # my_write()
+    my_read()
