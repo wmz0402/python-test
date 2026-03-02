@@ -112,21 +112,58 @@
 #
 
 
-#一维数据 二维数据储存
-def my_write():
-    # 一维数据可以使用列表，元组，集合
-    lst=["张三","李四","王五","赵六","麻七"]
-    with open("student.csv","w",encoding="utf-8") as file:
-        file.write(",".join(lst)) #将列表转换成字符串
+# #一维数据 二维数据储存
+# def my_write():
+#     # 一维数据可以使用列表，元组，集合
+#     lst=["张三","李四","王五","赵六","麻七"]
+#     with open("student.csv","w",encoding="utf-8") as file:
+#         file.write(",".join(lst)) #将列表转换成字符串
+#
+# def my_read():
+#     with open("student.csv","r",encoding="utf-8") as file:
+#         s=file.read()
+#         lst=s.split(",")
+#         print(lst)
+#
+#
+#
+# if __name__ == '__main__':
+#     # my_write()
+#     my_read()
 
-def my_read():
-    with open("student.csv","r",encoding="utf-8") as file:
-        s=file.read()
-        lst=s.split(",")
-        print(lst)
 
 
 
-if __name__ == '__main__':
-    # my_write()
-    my_read()
+
+
+
+#高维数据储存
+import json
+#准备高维数据
+lst=[
+    {'name':"wmz","age":18,"score":90},
+    {"name":"陈美美","age":21,"score":99},
+    {"name":"张一一","age":19,"score":89}
+]
+
+s=json.dumps(lst,ensure_ascii=False,indent=4) #ensure_ascii正常显示中文，indent增加数据的缩进，美观用的，JSON格式的字符串跟美观
+print(type(s))
+print(s)
+
+#解码
+lst2=json.loads(s)
+print(type(lst2))
+print(lst2)
+
+#编码到文件中
+with open("student.txt","w",encoding="utf-8") as file:
+    json.dump(lst,file)
+
+#解码到程序
+with open("student.txt","r",encoding="utf-8") as file:
+    lst3=json.load(file)
+    print(type(lst3))
+    print(lst3)
+
+
+
